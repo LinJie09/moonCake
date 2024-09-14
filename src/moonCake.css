@@ -1,0 +1,558 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outside {
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    width: 50vh;
+}
+
+
+.btnImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 40px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.mooncake {
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative; /* 使伺服器相對於月餅 */
+    margin-top: 40px;
+}
+
+.mooncake img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s;
+    position: relative;
+    
+}
+
+.crack-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.crack-overlay::before,.crack-overlay::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: inherit;
+    background-image: url('../public/moonCake.PNG');
+    background-size: 200% 100%;
+    /* transition: tranform 2s linear; */
+    transition: transform 1.5s ease-in-out;
+}
+
+.crack-overlay::before{
+    left: 0;
+    background-position: 0 0 ;
+}
+
+.crack-overlay::after{
+    right: 0;
+    background-position: 100% 0;
+}
+
+.mooncake.animate .crack-overlay::before {
+    animation: crackLeft 0.8s ease-in-out forwards;
+}
+
+.mooncake.animate .crack-overlay::after {
+    animation: crackRight 0.8s ease-in-out forwards;
+}
+
+@keyframes crackLeft {
+    0% { transform: rotate(0) translateX(0); }
+    100% { transform: rotate(-30deg) translateX(-20%); }
+  }
+  
+  @keyframes crackRight {
+    0% { transform: rotate(0) translateX(0); }
+    
+    100% { transform: rotate(30deg) translateX(20%); }
+  }
+
+/*===================================================*/
+
+.mooncake .animate{
+    opacity: 0;
+}
+
+.pastorImgandVerses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+
+@keyframes scaleUp {
+    0%{
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.verseH2 {
+    font-family: cursive;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+
+/* 響應式設計 */
+
+/* 手機設備*/
+@media screen and (max-width: 480px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .outside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        max-height: 100%;
+        margin-top: 10vh;
+        box-sizing: border-box;
+    }
+
+    .mooncake-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        
+    }
+    
+    /* .mooncake-container .pastorImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        animation: scaleUP 2.5s ease-in-out forwards;
+    } */
+
+    .pastorImg {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: scaleUP 1s ease-in-out forwards;
+        z-index: 1;
+    }
+    
+    .mooncake {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .crack-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .btnImg {
+        display: block;
+        width: 200px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    .pastorImgandVerses {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .verseH2 {
+        font-family: cursive;
+        max-width: 300px;
+        font-weight: 900;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+/* 平板設備 */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    /* .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    } */
+
+    .outside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        max-height: 100%;
+        margin-top:20vh;
+    }
+
+    .mooncake-container {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+    
+    .mooncake-container .pastorImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        animation: scaleUP 2.5s ease-in-out forwards;
+    }
+
+    .mooncake {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .crack-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .btnImg {
+        display: block;
+        width: 300px;
+        cursor: pointer;
+    }
+
+    .pastorImgandVerses {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .verseH2 {
+        font-family: cursive;
+        font-weight: 900;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+/* 小型桌面設備 */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    /* .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    } */
+
+    .outside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        max-height: 100%;
+        justify-content: center;
+        margin-top: 38vh;
+    }
+
+    .mooncake-container {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        margin-bottom: 40px;
+    }
+
+    .mooncake {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .crack-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+    }
+    
+    /* .mooncake img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 1s;
+        position: relative;
+    } */
+
+    .pastorImg {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: scaleUP 1s ease-in-out forwards;
+        z-index: 1;
+    }
+
+    .btnImg {
+        display: block;
+        width: 300px;
+        cursor: pointer;
+    }
+
+    .verseH2 {
+        font-family: cursive;
+        font-weight: 900;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .pastorImgandVerses {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+/* 中型桌面設備 */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .outside {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    .mooncake-container {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        
+    }
+    /* .mooncake-container .pastorImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        animation: scaleUP 2.5s ease-in-out forwards;
+    } */
+
+    .mooncake {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .crack-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .pastorImg {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: scaleUP 1s ease-in-out forwards;
+    }
+
+    .btnImg {
+        display: block;
+        width: 300px;
+        cursor: pointer;
+    }
+
+    .verseH2 {
+        width: 500px;
+        font-family: cursive;
+        font-weight: 900;
+        font-size: 22px;
+        text-align: center;
+        
+    }
+
+    .pastorImgandVerses {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+/* 大型桌面設備 */
+@media screen and (min-width: 1201px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .outside {
+        margin-top: 10vh;
+        max-width: 100%;
+        max-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .mooncake-container {
+        position: relative;
+        width: 250px;
+        height: 250px;
+    }
+
+    .mooncake {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .crack-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .pastorImg {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: scaleUP 1s ease-in-out forwards;
+    }
+
+    .btnImg {
+        display: block;
+        width: 300px;
+        cursor: pointer
+    }
+
+    .verseH2 {
+        font-family: cursive;
+        font-weight: 900;
+        text-align: center;
+        font-size: 24px;
+        max-width: 600px;
+    }
+
+    .pastorImgandVerses {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

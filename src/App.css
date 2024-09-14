@@ -1,0 +1,137 @@
+.appContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.divBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.h2Word{
+  display: flex;
+  align-items: center;
+  font-family: 'cursive';
+  text-align: center;
+  justify-content: center;
+}
+
+.wordPosition{
+  background-color: #faf7ea;
+  height: 100vh;
+  width: 100vw;
+  border-radius: 35%;
+  /* background-color: #d3d3d3;
+  height: 100px;
+  width: 200px; */
+}
+
+.clickImg{
+  max-width: 100vw;
+  height: auto;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 480px) {
+  .appContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+  }
+  .divBtn{
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .appContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .divBtn{
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .appContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20vh;
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .appContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .appContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+/* ====================================================*/
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
