@@ -65,7 +65,7 @@ function App() {
   return (
     <div className="appContainer">
       <audio ref={audioRef} preload='auto' loop>
-        <source src='./backgroundMusic/bckMusic.mp3' type='audio/mpeg' />
+        <source src='./backgroundMusic/moonFestival.mp3' type='audio/mpeg' />
       </audio>
       <MoonCake />
       {isOverlayVisible &&(
